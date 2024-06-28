@@ -1,0 +1,30 @@
+import java.util.*;
+public class NumberGame {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int attempts=0;
+        System.out.println("------welcome to guess the word game !!!!-------");
+        System.out.println("*****you have to guess the number between 1 to 100 and for this you will be given 5 attempts so all the best ");
+        int score =100;
+        int guess;
+        int ans=(int)(Math.random()*100)+1;
+        do {
+            if(attempts>4){ System.out.println("oops! attempts limit exceed");
+                System.out.println("your score is "+0);
+                break;}
+            System.out.println("guess the number");
+            guess= sc.nextInt();
+            if (guess == ans) {
+                System.out.println("you are correct number is " + guess);
+                System.out.println("congratulations you guessed it correct your score is "+score);
+            } else if (guess > ans) {
+                System.out.println("too high try smaller one");
+                score-=20;
+            } else {
+                System.out.println("too small try greater one");
+                score-=20;
+            }
+            attempts++;
+        }while (guess!=ans);
+    }
+}
